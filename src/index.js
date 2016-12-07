@@ -9,6 +9,18 @@ models.add({
   hotwords : 'snowboy'
 });
 
+models.add({
+  file: 'resources/alexa.umdl',
+  sensitivity: '0.5',
+  hotwords : 'alexa'
+});
+
+models.add({
+  file: 'resources/HeyOffice.pmdl',
+  sensitivity: '0.5',
+  hotwords : 'hey office'
+});
+
 const detector = new Detector({
   resource: "resources/common.res",
   models: models,
