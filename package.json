@@ -12,14 +12,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/speech": "^0.5.0",
     "node-record-lpcm16": "^0.1.8",
-    "snowboy": "^1.1.0"
+    "snowboy": "^1.1.0",
+    "dotenv": "^2.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-node6": "^11.0.0"
   },
   "babel": {
-    "presets": ["node6"]
+    "presets": [
+      "node6"
+    ]
   }
 }
