@@ -55,7 +55,11 @@ detector.on('hotword', function (index, hotword) {
      .on('data', (data) => {
        console.log('data!! =D');
        console.log(data);
-      //  process.stdout.write(data.results)
+       if (data.endpointerType === 'END_OF_UTTERANCE') {
+         mic.unpipe(recognizeStream);
+         recognizeStream.end();
+         mic.pipe(detector);
+       }
      });
 
   mic.pipe(recognizeStream);
