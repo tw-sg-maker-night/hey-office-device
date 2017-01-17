@@ -17,10 +17,12 @@ const Player = new Speaker({
   sampleRate: 16000
 })
 
+let names = ['Nicole', 'Russell', 'Raveena', 'Amy', 'Brian', 'Joanna', 'Joey', 'Geraint']
+
 let params = {
     'Text': 'Hi, my name is master',
     'OutputFormat': 'pcm',
-    'VoiceId': 'Amy'
+    'VoiceId': names[Math.floor(Math.random() * names.length)]
 }
 
 Polly.synthesizeSpeech(params, (err, data) => {
