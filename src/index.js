@@ -47,7 +47,7 @@ detector.on('hotword', function (index, hotword) {
   console.log('hotword', index, hotword);
 
   mic.unpipe(detector);
-
+  let finished = false;
   const recognizeStream = speech.createRecognizeStream(request)
      .on('error', (error) => {
        console.log("hmmmm...")
@@ -60,6 +60,13 @@ detector.on('hotword', function (index, hotword) {
          mic.unpipe(recognizeStream);
          recognizeStream.end();
          mic.pipe(detector);
+         finished = true;
+       } else if (data.endpointerType === 'ENDPOINTER_EVENT_UNSPECIFIED' && finished) {
+         let result = ""
+         if (Array.isArray(data.results)) { result =  data.results[0].transcript}
+         else { result = data.results }
+         console.log(`#### ${result} ####`)
+         polly.speak(result)
        }
      });
 
