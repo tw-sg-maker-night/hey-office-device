@@ -2,6 +2,7 @@ require('dotenv').config();
 
 import record from 'node-record-lpcm16'
 import {Detector, Models} from 'snowboy'
+import polly from './polly'
 
 let speech = require('@google-cloud/speech')({
   projectId: process.env.GOOGLE_SPEECH_PROJECT_ID,
@@ -76,6 +77,7 @@ const mic = record.start({
   sampleRate: 16000
 });
 
+polly.speak("Hey Office is now ready!")
 mic.pipe(detector);
 
 var request = {
