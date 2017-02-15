@@ -3,6 +3,7 @@ require('dotenv').config();
 import record from 'node-record-lpcm16'
 import {Detector, Models} from 'snowboy'
 import polly from './polly'
+import lex from './lex'
 
 let speech = require('@google-cloud/speech')({
   projectId: process.env.GOOGLE_SPEECH_PROJECT_ID,
@@ -66,7 +67,10 @@ detector.on('hotword', function (index, hotword) {
          if (Array.isArray(data.results)) { result =  data.results[0].transcript}
          else { result = data.results }
          console.log(`#### ${result} ####`)
-         polly.speak(result)
+         lex.ask(result)
+         .then(response => polly.speak(response.message))
+         .catch(err => polly.speak("I am a banana!"))
+         //polly.speak(result)
        }
      });
 
@@ -93,6 +97,6 @@ var request = {
     sampleRate: 16000
   },
   singleUtterance: true,
-  interimResults: true,
+  interimResults: false,
   verbose: true
 };
