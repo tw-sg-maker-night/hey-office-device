@@ -23,3 +23,6 @@ pcm.!default {
    }
 }
 EOF
+
+yarn install
+yarn run build
