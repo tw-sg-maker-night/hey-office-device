@@ -24,5 +24,7 @@ pcm.!default {
 }
 EOF
 
+amixer sset 'PCM' 100%
+
 yarn install
 yarn run build
