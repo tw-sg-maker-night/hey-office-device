@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "babel-node src/index",
-    "lexSound": "babel-node src/index",
+    "lexSound": "babel-node src/lexSoundTest",
     "build": "babel src -d bin",
     "start": "node bin/index"
   },

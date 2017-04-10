@@ -71,10 +71,8 @@ exports.askSound = stream => {
       console.log("******* data");
       console.log(data);
 
-      let bufferStream = new Stream.PassThrough()
-      bufferStream.pipe(Decoder).pipe(Player)
-
-      bufferStream.end(data.audioStream)
+      Decoder.pipe(Player)
+      Decoder.end(data.audioStream)
     } // successful response
   });
 }
