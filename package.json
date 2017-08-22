@@ -20,7 +20,9 @@
     "node-record-lpcm16": "^0.2.0",
     "snowboy": "^1.1.0",
     "speaker": "^0.3.0",
-    "stream-to-array": "^2.3.0"
+    "stream-to-array": "^2.3.0",
+    "voice-activity-detection": "^0.0.4",
+    "web-audio-api": "^0.2.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",

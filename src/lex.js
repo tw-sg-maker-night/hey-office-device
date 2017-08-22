@@ -11,7 +11,7 @@ const Lex = new AWS.LexRuntime({
 
 exports.ask = text => {
   let params = {
-    botAlias: 'dev', /* required */
+    botAlias: '$LATEST', /* required */
     botName: 'HeyOffice', /* required */
     contentType: 'text/plain; charset=utf-8', /* required */
     inputStream: text, /* required */
